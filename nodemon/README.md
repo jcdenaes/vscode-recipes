@@ -15,7 +15,7 @@ We recommend that you use our Node debugger in an `attach` configuration that's 
 2. This guide assumes that you are using the official sample app [nodejs-shopping-cart](https://github.com/gtsopour/nodejs-shopping-cart). Clone the repo to get started
     > 
     ```
-    git git@github.com:gtsopour/nodejs-shopping-cart.git
+    git clone git@github.com:gtsopour/nodejs-shopping-cart.git
     cd nodejs-shopping-cart
     npm install
     code .
@@ -59,7 +59,7 @@ Then click on the gear icon to configure a launch.json file, selecting **Node** 
     }
     ```
 
- Notice the `restart` property. This setting is key as it tells our debugger to re-attach to the Node process, if the proces get's terminiated. Read more about the setting [here in our docs](https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_restarting-debug-sessions-automatically-when-source-is-edited).   
+ Notice the `restart` property. This setting is key as it tells our debugger to re-attach to the Node process, if the process get's terminiated. Read more about the setting [here in our docs](https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_restarting-debug-sessions-automatically-when-source-is-edited).   
 
 ## Start your node app via your new NPM script
 
@@ -87,7 +87,7 @@ The next step is to start your Node app via your new `npm run debug` script. We 
 
   6. Try to make a change to **routes/index.js**. 
   
-  7. Nodemon should kick in after the change, and you should see VS Code re-attach to the newly spawned Node process automaticilly.
+  7. Nodemon should kick in after the change, and you should see VS Code re-attach to the newly spawned Node process automatically.
 
   8. Party 🎉🔥 
 

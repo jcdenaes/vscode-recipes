@@ -12,7 +12,7 @@ To try the example you'll need to install dependencies by running:
 
 `npm install`
 
-## Configure launch.json File for yur test framework
+## Configure launch.json File for your test framework
 
 * Click on the Debugging icon in the Activity Bar to bring up the Debug view.
   Then click on the gear icon to configure a launch.json file, selecting **Node** for the environment:
@@ -27,21 +27,43 @@ To try the example you'll need to install dependencies by running:
       "type": "node",
       "request": "launch",
       "name": "Jest All",
-      "program": "${workspaceRoot}/node_modules/jest/bin/jest",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
       "args": ["--runInBand"],
       "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen"
+      "internalConsoleOptions": "neverOpen",
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      }
     },
     {
       "type": "node",
       "request": "launch",
       "name": "Jest Current File",
-      "program": "${workspaceRoot}/node_modules/jest/bin/jest",
-      "args": ["${file}"],
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": ["${relativeFile}"],
       "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen"
+      "internalConsoleOptions": "neverOpen",
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      }
     }
   ]
+}
+```
+
+## Configure package.json File for your test framework
+* Add following Jest configuration to package.json:
+```
+"jest": {
+   "testEnvironment": "node"
+}
+```
+
+**Note for windows users** : if `node_modules/jest` is not available in your project, but `node_modules/jest-cli` is installed (e.g. if you are [using react-boilerplate](https://github.com/react-boilerplate/react-boilerplate/blob/v3.6.0/package.json#L221)) you can replace the windows attribute by this one for both launch configurations :
+
+```json
+"windows": {
+  "program": "${workspaceFolder}/node_modules/jest-cli/bin/jest",
 }
 ```
 
